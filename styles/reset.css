@@ -1,0 +1,201 @@
+/* ==========================================================
+   PIXORELY RESET
+========================================================== */
+
+/* Box sizing only — do not reset all margins/padding globally */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   DOCUMENT
+========================================================== */
+
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+
+  background-color: var(--background);
+  color: var(--foreground);
+
+  font-family: var(--font-inter), Arial, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================
+   MAIN LAYOUT
+========================================================== */
+
+main {
+  min-height: 100vh;
+}
+
+section,
+article,
+aside,
+header,
+footer,
+nav {
+  position: relative;
+}
+
+/* ==========================================================
+   TYPOGRAPHY BASE
+========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), Arial, sans-serif;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================
+   MEDIA
+========================================================== */
+
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ==========================================================
+   FORMS
+========================================================== */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  color: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+/* ==========================================================
+   LISTS
+========================================================== */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ==========================================================
+   TABLES
+========================================================== */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ==========================================================
+   MISC
+========================================================== */
+
+iframe {
+  border: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+::selection {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Remove mobile tap flash */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

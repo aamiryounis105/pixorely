@@ -1,0 +1,295 @@
+/* ==========================================================
+   TECHNOLOGY MARQUEE — SMOOTH VERSION
+========================================================== */
+
+.marquee-section {
+  width: 100%;
+  padding-top: 48px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+/* ==========================================================
+   HEADING
+========================================================== */
+
+.marquee-heading {
+  margin-bottom: 8px;
+
+  text-align: center;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+/* ==========================================================
+   WRAPPER
+========================================================== */
+
+.marquee-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+}
+
+.marquee-wrapper-second {
+  margin-top: 2px;
+}
+
+/* ==========================================================
+   TRACK
+========================================================== */
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  width: max-content;
+
+  will-change: transform;
+
+  backface-visibility: hidden;
+
+  transform: translate3d(0, 0, 0);
+}
+
+/* ==========================================================
+   FIRST ROW — LEFT
+========================================================== */
+
+.marquee-track-left {
+  animation:
+    marquee-left
+    46s
+    linear
+    infinite;
+}
+
+/* ==========================================================
+   SECOND ROW — RIGHT
+========================================================== */
+
+.marquee-track-right {
+  animation:
+    marquee-right
+    50s
+    linear
+    infinite;
+}
+
+/* ==========================================================
+   PAUSE
+========================================================== */
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: running;
+}
+
+/* ==========================================================
+   KEYFRAMES
+========================================================== */
+
+@keyframes marquee-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ==========================================================
+   PILL
+========================================================== */
+
+.marquee-pill {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 13px 21px;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.78);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color: var(--foreground);
+
+  font-size: 15px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  user-select: none;
+
+  transition:
+    background-color 280ms ease,
+    border-color 280ms ease,
+    color 280ms ease;
+}
+
+/*
+  Don't move the whole pill vertically.
+  That makes a moving marquee feel jittery.
+*/
+
+.marquee-pill:hover {
+  border-color: rgba(255, 106, 0, 0.3);
+
+  background: rgba(255, 255, 255, 0.94);
+}
+
+/* ==========================================================
+   ICON
+========================================================== */
+
+.marquee-icon {
+  width: 21px;
+  height: 21px;
+
+  flex-shrink: 0;
+
+  color: var(--primary);
+
+  transform: translateZ(0);
+
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 280ms ease;
+}
+
+.marquee-pill:hover .marquee-icon {
+  transform:
+    translateZ(0)
+    scale(1.07);
+}
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+.dark .marquee-heading {
+  color: #a1a1aa;
+}
+
+.dark .marquee-pill {
+  background: #1b1b20;
+
+  border-color: #2d2d33;
+
+  color: #f4f4f5;
+}
+
+.dark .marquee-pill:hover {
+  background: #222227;
+
+  border-color: rgba(255, 106, 0, 0.35);
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 1024px) {
+  .marquee-track-left {
+    animation-duration: 40s;
+  }
+
+  .marquee-track-right {
+    animation-duration: 44s;
+  }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+  .marquee-section {
+    gap: 14px;
+  }
+
+  .marquee-track {
+    gap: 12px;
+  }
+
+  .marquee-track-left {
+    animation-duration: 32s;
+  }
+
+  .marquee-track-right {
+    animation-duration: 35s;
+  }
+
+  .marquee-pill {
+    padding: 11px 17px;
+
+    font-size: 14px;
+  }
+
+  .marquee-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .marquee-pill,
+  .marquee-icon {
+    transition: none !important;
+  }
+}

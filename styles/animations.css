@@ -1,0 +1,209 @@
+/* ==========================================================
+   PIXORELY ANIMATIONS
+========================================================== */
+
+/* ==========================================================
+   THEME TRANSITIONS
+========================================================== */
+
+/*
+  Apply theme transitions only to page surfaces.
+  Navbar transitions are controlled inside Navbar.tsx.
+*/
+
+body,
+main,
+footer,
+section,
+article,
+aside {
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    color 180ms ease;
+}
+
+/* Interactive elements */
+
+button,
+a,
+input,
+textarea,
+select {
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    transform 300ms ease,
+    color 100ms ease;
+}
+
+/* Icons */
+
+svg {
+  transition:
+    color 100ms ease,
+    fill 100ms ease,
+    stroke 100ms ease,
+    transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Images */
+
+img {
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease;
+}
+
+/* ==========================================================
+   HOVER HELPERS
+========================================================== */
+
+.animate-lift {
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.animate-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.animate-scale {
+  transition: transform 300ms ease;
+}
+
+.animate-scale:hover {
+  transform: scale(1.03);
+}
+
+.animate-opacity {
+  transition: opacity 300ms ease;
+}
+
+.animate-opacity:hover {
+  opacity: 0.85;
+}
+
+/* ==========================================================
+   ENTRANCE ANIMATIONS
+========================================================== */
+
+.fade-in {
+  animation: fadeIn 600ms ease both;
+}
+
+.fade-up {
+  animation: fadeUp 600ms ease both;
+}
+
+.fade-down {
+  animation: fadeDown 600ms ease both;
+}
+
+.fade-left {
+  animation: fadeLeft 600ms ease both;
+}
+
+.fade-right {
+  animation: fadeRight 600ms ease both;
+}
+
+/* ==========================================================
+   KEYFRAMES
+========================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  main,
+  footer,
+  section,
+  article,
+  aside,
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  svg,
+  img {
+    transition: none !important;
+  }
+
+  .fade-in,
+  .fade-up,
+  .fade-down,
+  .fade-left,
+  .fade-right,
+  .animate-lift,
+  .animate-scale,
+  .animate-opacity {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,346 @@
+/* ==========================================================
+   PIXORELY GLOBAL WEBSITE BACKGROUND
+========================================================== */
+
+.site-bg {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--background) 100%
+    );
+}
+
+/* ==========================================================
+   MAIN POINTER GLOW
+========================================================== */
+
+.site-glow {
+  position: absolute;
+
+  left: 50%;
+  top: -14%;
+
+  width: min(1250px, 100vw);
+  height: 760px;
+
+  transform: translateX(-50%);
+
+  border-radius: 999px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255,106,0,.22) 0%,
+      rgba(255,106,0,.08) 34%,
+      rgba(255,106,0,.02) 56%,
+      transparent 76%
+    );
+
+  filter: blur(120px);
+
+  opacity: .9;
+}
+
+.dark .site-glow{
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(255,106,0,.18) 0%,
+      rgba(255,106,0,.06) 34%,
+      rgba(255,106,0,.015) 56%,
+      transparent 76%
+    );
+
+  opacity:.75;
+}
+
+/* ==========================================================
+   RIGHT GLOW
+========================================================== */
+
+.site-glow-secondary{
+  position:absolute;
+
+  right:-240px;
+  top:18%;
+
+  width:560px;
+  height:560px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,170,95,.16),
+      rgba(255,106,0,.05) 45%,
+      transparent 72%
+    );
+
+  filter:blur(120px);
+}
+
+.dark .site-glow-secondary{
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,106,0,.08),
+      rgba(255,106,0,.03) 45%,
+      transparent 72%
+    );
+}
+
+/* ==========================================================
+   LEFT GLOW
+========================================================== */
+
+.site-glow-left{
+
+  position:absolute;
+
+  left:-250px;
+  bottom:4%;
+
+  width:620px;
+  height:620px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,190,125,.11),
+      rgba(255,106,0,.03) 48%,
+      transparent 72%
+    );
+
+  filter:blur(135px);
+}
+
+.dark .site-glow-left{
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,106,0,.06),
+      rgba(255,106,0,.02) 48%,
+      transparent 72%
+    );
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.site-grid{
+
+  position:absolute;
+  inset:0;
+
+  background-image:
+    linear-gradient(
+      rgba(255,106,0,.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,106,0,.05) 1px,
+      transparent 1px
+    );
+
+  background-size:58px 58px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at top,
+      black,
+      rgba(0,0,0,.6) 38%,
+      transparent 80%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at top,
+      black,
+      rgba(0,0,0,.6) 38%,
+      transparent 80%
+    );
+
+  opacity:.22;
+}
+
+.dark .site-grid{
+  opacity:.12;
+}
+
+/* ==========================================================
+   PARTICLE TEXTURE
+========================================================== */
+
+.site-noise{
+
+  position:absolute;
+  inset:0;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255,106,0,.18) .8px,
+      transparent .8px
+    );
+
+  background-size:36px 36px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 82%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 82%
+    );
+
+  opacity:.11;
+}
+
+.dark .site-noise{
+  opacity:.14;
+}
+
+/* ==========================================================
+   EDGE VIGNETTE
+========================================================== */
+
+.site-vignette{
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--background),
+      transparent 10%,
+      transparent 90%,
+      var(--background)
+    );
+
+  opacity:.32;
+}
+
+/* ==========================================================
+   FLOATING ORBS
+========================================================== */
+
+.site-floating-orb{
+
+  position:absolute;
+
+  border-radius:50%;
+
+  background:var(--primary);
+
+  filter:blur(45px);
+
+  opacity:.15;
+}
+
+.dark .site-floating-orb{
+  opacity:.12;
+}
+
+/* ==========================================================
+   FLOATING PARTICLES
+========================================================== */
+
+.site-particle{
+
+  position:absolute;
+
+  border-radius:50%;
+
+  background:var(--primary);
+
+  box-shadow:
+    0 0 12px rgba(255,106,0,.65);
+}
+
+.dark .site-particle{
+
+  box-shadow:
+    0 0 12px rgba(255,106,0,.45);
+}
+
+/* ==========================================================
+   TWINKLING STARS
+========================================================== */
+
+.site-star{
+
+  position:absolute;
+
+  width:2px;
+  height:2px;
+
+  border-radius:50%;
+
+  background:#ffffff;
+
+  box-shadow:
+    0 0 8px rgba(255,255,255,.65);
+}
+
+.dark .site-star{
+
+  background:#ffd7b5;
+
+  box-shadow:
+    0 0 8px rgba(255,190,125,.7);
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+  .site-glow{
+
+    top:-8%;
+
+    width:720px;
+    height:520px;
+
+    filter:blur(95px);
+  }
+
+  .site-glow-secondary{
+
+    right:-260px;
+
+    width:420px;
+    height:420px;
+  }
+
+  .site-glow-left{
+
+    left:-280px;
+
+    width:480px;
+    height:480px;
+  }
+
+  .site-grid{
+    background-size:44px 44px;
+  }
+}

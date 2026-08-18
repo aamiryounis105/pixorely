@@ -1,0 +1,50 @@
+/* ==========================================================
+   PIXORELY SCROLLBAR
+========================================================== */
+
+/* Firefox */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--secondary);
+}
+
+/* Chrome, Edge and Safari */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--primary),
+    var(--primary-hover)
+  );
+
+  border: 2px solid var(--secondary);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/* Dark mode */
+
+.dark ::-webkit-scrollbar-track {
+  background-color: var(--secondary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  border-color: var(--secondary);
+}
