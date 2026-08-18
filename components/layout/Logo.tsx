@@ -15,7 +15,7 @@ const logoSizes = {
   navbar: {
     width: 220,
     height: 56,
-    className: "h-10 w-auto sm:h-11 lg:h-12",
+    className: "h-12 w-auto md:h-13",
   },
 
   footer: {

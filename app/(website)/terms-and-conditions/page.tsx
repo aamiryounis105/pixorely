@@ -89,7 +89,7 @@ const terms = [
 
 export default function TermsAndConditionsPage() {
   return (
-    <main className="pb-24 pt-40">
+    <main className="py-10">
       {/* ================= HERO ================= */}
 
       <section>

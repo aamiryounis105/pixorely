@@ -84,7 +84,7 @@ export default function HeroHeading() {
       >
         Pixorely helps startups and growing businesses build a
         stronger digital presence through premium websites,
-        WordPress, Shopify, mobile apps, digital marketing, and
+        WordPress, Shopify, digital marketing, and
         professional email solutions.
       </motion.p>
     </div>

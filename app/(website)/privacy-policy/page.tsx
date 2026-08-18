@@ -78,7 +78,7 @@ const privacySections = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="pb-24 pt-40">
+    <main className="py-10">
       {/* Hero */}
 
       <section>
