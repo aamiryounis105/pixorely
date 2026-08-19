@@ -3,24 +3,25 @@ export const SITE = {
 
   slogan: "Results-Driven Digital Agency",
 
-  url: "https://www.pixorely.com",
+  url: "https://pixorely.com",
 
-  domain: "www.pixorely.com",
+  domain: "pixorely.com",
 
   description:
-    "We build high-converting websites, Shopify stores, HTML email solutions and digital marketing experiences.",
+    "Pixorely is a digital agency specializing in custom websites, WordPress, Shopify, digital marketing, HTML email templates, and professional email signatures.",
 
   keywords: [
     "Pixorely",
-    "digital growth agency",
+    "digital agency",
+    "custom website development",
     "website design",
-    "website development",
+    "WordPress website design",
     "Shopify store design",
-    "HTML email templates",
-    "email signatures",
-    "WordPress websites",
     "digital marketing",
-    "conversion focused websites",
+    "SEO services",
+    "HTML email templates",
+    "HTML email signatures",
+    "email signature design",
   ],
 
   author: "Pixorely",

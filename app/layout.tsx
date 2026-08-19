@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import {
+  Inter,
+  Space_Grotesk,
+} from "next/font/google";
 
 import "./globals.css";
 
@@ -20,7 +23,9 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: "Pixorely | Websites, Shopify & Digital Marketing Agency",
+    title:
+      "Pixorely | Websites, Shopify & Digital Marketing Agency",
+
     description:
       "Pixorely builds conversion-focused websites, Shopify stores, WordPress sites, HTML email templates and digital marketing experiences for growing brands.",
   }),
@@ -50,6 +55,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
           enableSystem
+          enableColorScheme
           storageKey="pixorely-theme"
         >
           {children}
