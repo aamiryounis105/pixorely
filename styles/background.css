@@ -6,16 +6,15 @@
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--background) 0%,
-      var(--background) 100%
-    );
+  background: var(--background);
+
+  pointer-events: none;
+
+  overflow: hidden;
 }
 
 /* ==========================================================
-   MAIN POINTER GLOW
+   MAIN ORANGE GLOW
 ========================================================== */
 
 .site-glow {
@@ -24,73 +23,78 @@
   left: 50%;
   top: -14%;
 
-  width: min(1250px, 100vw);
-  height: 760px;
+  width: min(1200px, 100vw);
+  height: 700px;
 
   transform: translateX(-50%);
 
-  border-radius: 999px;
+  border-radius: 50%;
+
+  /*
+    The gradient itself creates the blur effect.
+    No large filter: blur() is required.
+  */
 
   background:
     radial-gradient(
-      ellipse,
-      rgba(255,106,0,.22) 0%,
-      rgba(255,106,0,.08) 34%,
-      rgba(255,106,0,.02) 56%,
-      transparent 76%
+      ellipse at center,
+      rgba(255, 106, 0, 0.18) 0%,
+      rgba(255, 106, 0, 0.08) 28%,
+      rgba(255, 106, 0, 0.025) 48%,
+      transparent 72%
     );
 
-  filter: blur(120px);
+  opacity: 0.9;
 
-  opacity: .9;
+  pointer-events: none;
 }
 
-.dark .site-glow{
+.dark .site-glow {
   background:
     radial-gradient(
-      ellipse,
-      rgba(255,106,0,.18) 0%,
-      rgba(255,106,0,.06) 34%,
-      rgba(255,106,0,.015) 56%,
-      transparent 76%
+      ellipse at center,
+      rgba(255, 106, 0, 0.15) 0%,
+      rgba(255, 106, 0, 0.055) 30%,
+      rgba(255, 106, 0, 0.015) 50%,
+      transparent 72%
     );
 
-  opacity:.75;
+  opacity: 0.78;
 }
 
 /* ==========================================================
    RIGHT GLOW
 ========================================================== */
 
-.site-glow-secondary{
-  position:absolute;
+.site-glow-secondary {
+  position: absolute;
 
-  right:-240px;
-  top:18%;
+  right: -220px;
+  top: 18%;
 
-  width:560px;
-  height:560px;
+  width: 540px;
+  height: 540px;
 
-  border-radius:50%;
+  border-radius: 50%;
 
   background:
     radial-gradient(
-      circle,
-      rgba(255,170,95,.16),
-      rgba(255,106,0,.05) 45%,
+      circle at center,
+      rgba(255, 170, 95, 0.13) 0%,
+      rgba(255, 106, 0, 0.045) 32%,
+      rgba(255, 106, 0, 0.015) 50%,
       transparent 72%
     );
 
-  filter:blur(120px);
+  pointer-events: none;
 }
 
-.dark .site-glow-secondary{
-
+.dark .site-glow-secondary {
   background:
     radial-gradient(
-      circle,
-      rgba(255,106,0,.08),
-      rgba(255,106,0,.03) 45%,
+      circle at center,
+      rgba(255, 106, 0, 0.07) 0%,
+      rgba(255, 106, 0, 0.025) 36%,
       transparent 72%
     );
 }
@@ -99,36 +103,35 @@
    LEFT GLOW
 ========================================================== */
 
-.site-glow-left{
+.site-glow-left {
+  position: absolute;
 
-  position:absolute;
+  left: -230px;
+  bottom: 4%;
 
-  left:-250px;
-  bottom:4%;
+  width: 580px;
+  height: 580px;
 
-  width:620px;
-  height:620px;
-
-  border-radius:50%;
+  border-radius: 50%;
 
   background:
     radial-gradient(
-      circle,
-      rgba(255,190,125,.11),
-      rgba(255,106,0,.03) 48%,
+      circle at center,
+      rgba(255, 190, 125, 0.1) 0%,
+      rgba(255, 106, 0, 0.03) 36%,
+      rgba(255, 106, 0, 0.01) 52%,
       transparent 72%
     );
 
-  filter:blur(135px);
+  pointer-events: none;
 }
 
-.dark .site-glow-left{
-
+.dark .site-glow-left {
   background:
     radial-gradient(
-      circle,
-      rgba(255,106,0,.06),
-      rgba(255,106,0,.02) 48%,
+      circle at center,
+      rgba(255, 106, 0, 0.055) 0%,
+      rgba(255, 106, 0, 0.018) 42%,
       transparent 72%
     );
 }
@@ -137,210 +140,312 @@
    GRID
 ========================================================== */
 
-.site-grid{
+.site-grid {
+  position: absolute;
 
-  position:absolute;
-  inset:0;
+  inset: 0;
 
   background-image:
     linear-gradient(
-      rgba(255,106,0,.05) 1px,
+      rgba(255, 106, 0, 0.045) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255,106,0,.05) 1px,
+      rgba(255, 106, 0, 0.045) 1px,
       transparent 1px
     );
 
-  background-size:58px 58px;
-
-  mask-image:
-    radial-gradient(
-      ellipse at top,
-      black,
-      rgba(0,0,0,.6) 38%,
-      transparent 80%
-    );
+  background-size: 58px 58px;
 
   -webkit-mask-image:
-    radial-gradient(
-      ellipse at top,
-      black,
-      rgba(0,0,0,.6) 38%,
-      transparent 80%
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.45) 38%,
+      transparent 82%
     );
 
-  opacity:.22;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.45) 38%,
+      transparent 82%
+    );
+
+  opacity: 0.18;
+
+  pointer-events: none;
 }
 
-.dark .site-grid{
-  opacity:.12;
+.dark .site-grid {
+  opacity: 0.1;
 }
 
 /* ==========================================================
    PARTICLE TEXTURE
 ========================================================== */
 
-.site-noise{
+.site-noise {
+  position: absolute;
 
-  position:absolute;
-  inset:0;
+  inset: 0;
 
   background-image:
     radial-gradient(
       circle,
-      rgba(255,106,0,.18) .8px,
-      transparent .8px
+      rgba(255, 106, 0, 0.14) 0.7px,
+      transparent 0.8px
     );
 
-  background-size:36px 36px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent 82%
-    );
+  background-size: 38px 38px;
 
   -webkit-mask-image:
     linear-gradient(
       to bottom,
-      black,
+      black 0%,
+      rgba(0, 0, 0, 0.6) 45%,
       transparent 82%
     );
 
-  opacity:.11;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 0%,
+      rgba(0, 0, 0, 0.6) 45%,
+      transparent 82%
+    );
+
+  opacity: 0.08;
+
+  pointer-events: none;
 }
 
-.dark .site-noise{
-  opacity:.14;
+.dark .site-noise {
+  opacity: 0.1;
 }
 
 /* ==========================================================
    EDGE VIGNETTE
 ========================================================== */
 
-.site-vignette{
+.site-vignette {
+  position: absolute;
 
-  position:absolute;
-  inset:0;
+  inset: 0;
 
   background:
     linear-gradient(
       90deg,
-      var(--background),
+      var(--background) 0%,
       transparent 10%,
       transparent 90%,
-      var(--background)
+      var(--background) 100%
     );
 
-  opacity:.32;
+  opacity: 0.28;
+
+  pointer-events: none;
 }
 
 /* ==========================================================
    FLOATING ORBS
 ========================================================== */
 
-.site-floating-orb{
+.site-floating-orb {
+  position: absolute;
 
-  position:absolute;
+  border-radius: 50%;
 
-  border-radius:50%;
+  /*
+    Use a radial gradient instead of filter: blur().
+  */
 
-  background:var(--primary);
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 106, 0, 0.14) 0%,
+      rgba(255, 106, 0, 0.05) 38%,
+      transparent 72%
+    );
 
-  filter:blur(45px);
+  opacity: 0.9;
 
-  opacity:.15;
+  pointer-events: none;
 }
 
-.dark .site-floating-orb{
-  opacity:.12;
+.dark .site-floating-orb {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 106, 0, 0.1) 0%,
+      rgba(255, 106, 0, 0.035) 38%,
+      transparent 72%
+    );
+
+  opacity: 0.8;
 }
 
 /* ==========================================================
    FLOATING PARTICLES
 ========================================================== */
 
-.site-particle{
+.site-particle {
+  position: absolute;
 
-  position:absolute;
+  border-radius: 50%;
 
-  border-radius:50%;
+  background: var(--primary);
 
-  background:var(--primary);
+  /*
+    Smaller glow than before.
+    Keeps the visual effect without a large paint area.
+  */
 
   box-shadow:
-    0 0 12px rgba(255,106,0,.65);
+    0 0 6px rgba(255, 106, 0, 0.45);
+
+  pointer-events: none;
 }
 
-.dark .site-particle{
-
+.dark .site-particle {
   box-shadow:
-    0 0 12px rgba(255,106,0,.45);
+    0 0 5px rgba(255, 106, 0, 0.35);
 }
 
 /* ==========================================================
    TWINKLING STARS
 ========================================================== */
 
-.site-star{
+.site-star {
+  position: absolute;
 
-  position:absolute;
+  width: 2px;
+  height: 2px;
 
-  width:2px;
-  height:2px;
+  border-radius: 50%;
 
-  border-radius:50%;
-
-  background:#ffffff;
+  background: #ffffff;
 
   box-shadow:
-    0 0 8px rgba(255,255,255,.65);
+    0 0 4px rgba(255, 255, 255, 0.5);
+
+  pointer-events: none;
 }
 
-.dark .site-star{
-
-  background:#ffd7b5;
+.dark .site-star {
+  background: #ffd7b5;
 
   box-shadow:
-    0 0 8px rgba(255,190,125,.7);
+    0 0 4px rgba(255, 190, 125, 0.5);
 }
 
 /* ==========================================================
-   MOBILE
+   MOBILE PERFORMANCE
 ========================================================== */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-  .site-glow{
+  .site-glow {
+    top: -6%;
 
-    top:-8%;
+    width: 680px;
+    height: 480px;
 
-    width:720px;
-    height:520px;
-
-    filter:blur(95px);
+    opacity: 0.72;
   }
 
-  .site-glow-secondary{
-
-    right:-260px;
-
-    width:420px;
-    height:420px;
+  .dark .site-glow {
+    opacity: 0.62;
   }
 
-  .site-glow-left{
+  .site-glow-secondary {
+    right: -220px;
 
-    left:-280px;
-
-    width:480px;
-    height:480px;
+    width: 380px;
+    height: 380px;
   }
 
-  .site-grid{
-    background-size:44px 44px;
+  .site-glow-left {
+    left: -220px;
+
+    width: 420px;
+    height: 420px;
+  }
+
+  .site-grid {
+    background-size: 48px 48px;
+
+    opacity: 0.12;
+  }
+
+  .dark .site-grid {
+    opacity: 0.07;
+  }
+
+  /*
+    Noise is decorative and relatively expensive over
+    the entire page. Hide it on smaller devices.
+  */
+
+  .site-noise {
+    display: none;
+  }
+
+  .site-vignette {
+    opacity: 0.2;
+  }
+
+  /*
+    Keep individual decorative particles inexpensive.
+  */
+
+  .site-particle {
+    box-shadow: none;
+  }
+
+  .site-star {
+    box-shadow: none;
+  }
+}
+
+/* ==========================================================
+   VERY SMALL DEVICES
+========================================================== */
+
+@media (max-width: 480px) {
+
+  .site-glow {
+    width: 560px;
+    height: 420px;
+  }
+
+  .site-glow-secondary {
+    width: 320px;
+    height: 320px;
+  }
+
+  .site-glow-left {
+    width: 340px;
+    height: 340px;
+  }
+
+  .site-grid {
+    opacity: 0.09;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .site-floating-orb,
+  .site-particle,
+  .site-star {
+    animation: none !important;
+    transition: none !important;
   }
 }

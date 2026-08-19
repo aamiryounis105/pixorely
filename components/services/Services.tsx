@@ -61,7 +61,7 @@ export default function Services() {
             Digital Solutions Built to
             <br className="hidden sm:block" />
             <span className="text-[var(--primary)]">
-              Grow Your Business
+              &nbsp;Grow Your Business
             </span>
           </h2>
 

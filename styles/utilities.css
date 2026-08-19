@@ -42,17 +42,19 @@
 ========================================================== */
 
 .glass {
-  background-color: rgba(255, 255, 255, 0.78);
+  background-color: rgba(255, 255, 255, 0.82);
+
   border: 1px solid rgba(229, 231, 235, 0.82);
 
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 
   border-radius: var(--radius);
 }
 
 .dark .glass {
-  background-color: rgba(9, 9, 11, 0.8);
+  background-color: rgba(9, 9, 11, 0.86);
+
   border-color: rgba(39, 39, 42, 0.88);
 }
 
@@ -62,9 +64,11 @@
 
 .card {
   background-color: var(--card);
+
   color: var(--card-foreground);
 
   border: 1px solid var(--border);
+
   border-radius: var(--radius);
 
   box-shadow: var(--shadow-card);
@@ -73,14 +77,13 @@
 .card-hover {
   transition:
     transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition);
+    border-color var(--transition);
 }
 
 .card-hover:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
+
   border-color: rgba(255, 106, 0, 0.35);
-  box-shadow: var(--shadow-hover);
 }
 
 /* ==========================================================
@@ -121,18 +124,23 @@
 
 .badge {
   display: inline-flex;
+
   align-items: center;
+
   gap: 0.5rem;
 
   padding: 0.55rem 1rem;
 
   border: 1px solid rgba(255, 106, 0, 0.2);
+
   border-radius: 999px;
 
   background-color: var(--primary-light);
+
   color: var(--primary);
 
   font-size: 0.875rem;
+
   font-weight: 600;
 }
 
@@ -142,7 +150,9 @@
 
 .divider {
   width: 100%;
+
   height: 1px;
+
   background-color: var(--border);
 }
 
@@ -152,8 +162,11 @@
 
 .btn-primary {
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 0.6rem;
 
   padding: 0.9rem 1.6rem;
@@ -161,47 +174,58 @@
   border-radius: 999px;
 
   background-color: var(--primary);
+
   color: #ffffff;
 
   font-weight: 600;
 
   transition:
-    transform var(--transition),
     background-color var(--transition),
-    box-shadow var(--transition);
+    transform 180ms ease;
 }
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
 }
 
 .btn-outline {
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   gap: 0.6rem;
 
   padding: 0.9rem 1.6rem;
 
   border: 1px solid var(--border);
+
   border-radius: 999px;
 
   color: var(--foreground);
 
   transition:
-    transform var(--transition),
     border-color var(--transition),
     color var(--transition),
-    background-color var(--transition);
+    background-color var(--transition),
+    transform 180ms ease;
 }
 
 .btn-outline:hover {
-  transform: translateY(-2px);
   border-color: var(--primary);
+
   color: var(--primary);
+
   background-color: var(--primary-light);
+}
+
+.btn-outline:active {
+  transform: scale(0.97);
 }
 
 /* ==========================================================
@@ -210,21 +234,20 @@
 
 .hover-lift {
   transition:
-    transform var(--transition),
-    box-shadow var(--transition);
+    transform var(--transition);
 }
 
 .hover-lift:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
 }
 
 .hover-scale {
-  transition: transform var(--transition);
+  transition:
+    transform var(--transition);
 }
 
 .hover-scale:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* ==========================================================
@@ -235,6 +258,7 @@
 .grid-3,
 .grid-4 {
   display: grid;
+
   gap: 2rem;
 }
 
@@ -269,106 +293,143 @@
 }
 
 /* ==========================================================
-   TRANSITION
+   THEME TRANSITION HELPER
 ========================================================== */
 
 .transition-theme {
   transition:
-    background-color var(--transition),
-    border-color var(--transition),
-    color var(--transition),
-    box-shadow var(--transition);
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 180ms ease;
 }
 
 /* ==========================================================
    PREMIUM NAVBAR
 ========================================================== */
 
-/* Keep navbar permanently fixed */
 .site-header {
   position: fixed !important;
+
   top: 0 !important;
+
   right: 0 !important;
+
   left: 0 !important;
+
   z-index: 9999 !important;
 
   width: 100%;
+
   margin: 0;
-  transform: none !important;
-  translate: none !important;
+
+  /*
+    Navbar.tsx controls translateY()
+    when scrolling up and down.
+  */
+
+  will-change: transform;
 }
+
+/* ==========================================================
+   NAVBAR SHELL
+========================================================== */
 
 .navbar-shell {
   position: relative;
+
   isolation: isolate;
+
   overflow: hidden;
 
   border: 1px solid transparent;
+
   background: transparent;
+
   box-shadow: none;
 
   transition:
-    background-color 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    backdrop-filter 450ms cubic-bezier(0.22, 1, 0.36, 1);
+    background-color 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
 }
+
+/* ==========================================================
+   NAVBAR — TOP
+========================================================== */
 
 .navbar-shell--top {
   background: transparent;
+
   border-color: transparent;
+
   box-shadow: none;
 
-  backdrop-filter: blur(0);
-  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: none;
+
+  -webkit-backdrop-filter: none;
 }
 
-/* Light-mode glass */
+/* ==========================================================
+   NAVBAR — SCROLLED LIGHT MODE
+========================================================== */
 
 .navbar-shell--scrolled {
   background:
     linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.78),
-      rgba(255, 255, 255, 0.66)
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.84)
     );
 
-  border-color: rgba(15, 23, 42, 0.08);
+  border-color:
+    rgba(15, 23, 42, 0.08);
 
   box-shadow:
-    0 18px 60px rgba(15, 23, 42, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    0 8px 30px rgba(15, 23, 42, 0.07);
 
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
 }
 
-/* Dark-mode glass */
+/* ==========================================================
+   NAVBAR — SCROLLED DARK MODE
+========================================================== */
 
 .dark .navbar-shell--scrolled {
   background:
     linear-gradient(
       90deg,
-      rgba(6, 7, 8, 0.84),
-      rgba(14, 14, 16, 0.72)
+      rgba(6, 7, 8, 0.92),
+      rgba(14, 14, 16, 0.88)
     );
 
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color:
+    rgba(255, 255, 255, 0.08);
 
   box-shadow:
-    0 20px 65px rgba(0, 0, 0, 0.48),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 8px 30px rgba(0, 0, 0, 0.26);
 
-  backdrop-filter: blur(26px) saturate(180%);
-  -webkit-backdrop-filter: blur(26px) saturate(180%);
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
 }
 
-/* Soft top highlight */
+/* ==========================================================
+   NAVBAR — SOFT TOP HIGHLIGHT
+========================================================== */
 
 .navbar-shell::before {
   content: "";
+
   position: absolute;
+
   inset: 0;
+
   z-index: -1;
 
   pointer-events: none;
@@ -376,13 +437,14 @@
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.07),
       transparent 42%
     );
 
   opacity: 0;
 
-  transition: opacity 450ms ease;
+  transition:
+    opacity 300ms ease;
 }
 
 .navbar-shell--scrolled::before {
@@ -393,22 +455,29 @@
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.035),
       transparent 40%
     );
 }
 
-/* Subtle Pixorely orange ambient glow */
+/* ==========================================================
+   NAVBAR — AMBIENT ORANGE GLOW
+========================================================== */
 
 .navbar-shell::after {
   content: "";
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   z-index: -2;
 
-  width: 420px;
-  height: 180px;
+  width: 360px;
+
+  height: 120px;
 
   pointer-events: none;
 
@@ -417,24 +486,98 @@
   background:
     radial-gradient(
       circle,
-      rgba(255, 106, 0, 0.1),
-      rgba(255, 106, 0, 0.035) 40%,
+      rgba(255, 106, 0, 0.08),
+      rgba(255, 106, 0, 0.025) 40%,
       transparent 72%
     );
 
   opacity: 0;
 
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%);
 
-  filter: blur(34px);
+  filter:
+    blur(18px);
 
-  transition: opacity 500ms ease;
+  transition:
+    opacity 300ms ease;
 }
 
 .navbar-shell--scrolled::after {
-  opacity: 0.55;
+  opacity: 0.35;
 }
 
 .dark .navbar-shell--scrolled::after {
-  opacity: 0.38;
+  opacity: 0.25;
+}
+
+/* ==========================================================
+   MOBILE PERFORMANCE
+========================================================== */
+
+@media (max-width: 768px) {
+  /*
+    Keep mobile glass lighter because backdrop-filter
+    on fixed elements can be expensive during scrolling.
+  */
+
+  .glass {
+    -webkit-backdrop-filter: blur(6px);
+
+    backdrop-filter: blur(6px);
+  }
+
+  .navbar-shell--scrolled {
+    backdrop-filter: blur(6px);
+
+    -webkit-backdrop-filter: blur(6px);
+
+    box-shadow:
+      0 5px 20px rgba(15, 23, 42, 0.06);
+  }
+
+  .dark .navbar-shell--scrolled {
+    box-shadow:
+      0 5px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-shell::after {
+    filter: blur(10px);
+
+    opacity: 0;
+  }
+
+  .navbar-shell--scrolled::after {
+    opacity: 0.18;
+  }
+
+  .dark .navbar-shell--scrolled::after {
+    opacity: 0.14;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover,
+  .btn-primary,
+  .btn-outline,
+  .hover-lift,
+  .hover-scale,
+  .transition-theme,
+  .navbar-shell,
+  .navbar-shell::before,
+  .navbar-shell::after {
+    transition: none !important;
+  }
+
+  .card-hover:hover,
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .btn-primary:active,
+  .btn-outline:active {
+    transform: none !important;
+  }
 }

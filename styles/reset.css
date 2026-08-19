@@ -16,21 +16,29 @@
 
 html {
   min-height: 100%;
+
   overflow-x: hidden;
+  overflow-x: clip;
 
   -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
 }
 
 body {
   min-height: 100vh;
+
   margin: 0;
+
   overflow-x: hidden;
+  overflow-x: clip;
 
   background-color: var(--background);
+
   color: var(--foreground);
 
-  font-family: var(--font-inter), Arial, sans-serif;
+  font-family:
+    var(--font-inter),
+    Arial,
+    sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -64,7 +72,11 @@ h4,
 h5,
 h6 {
   color: var(--foreground);
-  font-family: var(--font-space-grotesk), Arial, sans-serif;
+
+  font-family:
+    var(--font-space-grotesk),
+    Arial,
+    sans-serif;
 }
 
 p {
@@ -77,6 +89,7 @@ p {
 
 a {
   color: inherit;
+
   text-decoration: none;
 }
 
@@ -90,11 +103,13 @@ svg,
 video,
 canvas {
   display: block;
+
   max-width: 100%;
 }
 
 img {
   user-select: none;
+
   -webkit-user-drag: none;
 }
 
@@ -111,6 +126,7 @@ select {
 
 button {
   color: inherit;
+
   cursor: pointer;
 }
 
@@ -126,6 +142,7 @@ textarea {
 
 ::placeholder {
   color: var(--muted);
+
   opacity: 1;
 }
 
@@ -144,6 +161,7 @@ ol {
 
 table {
   border-collapse: collapse;
+
   border-spacing: 0;
 }
 
@@ -157,6 +175,7 @@ iframe {
 
 hr {
   border: 0;
+
   border-top: 1px solid var(--border);
 }
 
@@ -166,20 +185,25 @@ hr {
 
 ::selection {
   background-color: var(--primary);
+
   color: #ffffff;
 }
 
 ::-moz-selection {
   background-color: var(--primary);
+
   color: #ffffff;
 }
 
 :focus-visible {
   outline: 2px solid var(--primary);
+
   outline-offset: 3px;
 }
 
-/* Remove mobile tap flash */
+/* ==========================================================
+   MOBILE TAP
+========================================================== */
 
 * {
   -webkit-tap-highlight-color: transparent;
@@ -194,8 +218,11 @@ hr {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+
     animation-iteration-count: 1 !important;
+
     transition-duration: 0.01ms !important;
+
     scroll-behavior: auto !important;
   }
 }

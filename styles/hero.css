@@ -1,15 +1,19 @@
 /* ==========================================================
-   TECHNOLOGY MARQUEE — SMOOTH VERSION
+   PIXORELY TECHNOLOGY MARQUEE
+   PERFORMANCE OPTIMIZED
 ========================================================== */
 
 .marquee-section {
   width: 100%;
+
   padding-top: 48px;
 
   display: flex;
   flex-direction: column;
 
   gap: 18px;
+
+  overflow: hidden;
 }
 
 /* ==========================================================
@@ -24,7 +28,7 @@
   font-size: 13px;
   font-weight: 700;
 
-  letter-spacing: 0.10em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 
   color: var(--muted);
@@ -41,21 +45,30 @@
 
   overflow: hidden;
 
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 7%,
-    black 93%,
-    transparent 100%
-  );
+  /*
+    Keep the edge fade.
 
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 7%,
-    black 93%,
-    transparent 100%
-  );
+    This is much cheaper than applying
+    blur/backdrop-filter to every pill.
+  */
+
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 7%,
+      black 93%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 7%,
+      black 93%,
+      transparent 100%
+    );
 }
 
 .marquee-wrapper-second {
@@ -74,43 +87,53 @@
 
   width: max-content;
 
+  /*
+    This is one of the few places where
+    will-change is useful because the
+    element moves continuously.
+  */
+
   will-change: transform;
 
   backface-visibility: hidden;
 
-  transform: translate3d(0, 0, 0);
+  transform:
+    translate3d(0, 0, 0);
 }
 
 /* ==========================================================
-   FIRST ROW — LEFT
+   FIRST ROW
 ========================================================== */
 
 .marquee-track-left {
   animation:
     marquee-left
-    46s
+    52s
     linear
     infinite;
 }
 
 /* ==========================================================
-   SECOND ROW — RIGHT
+   SECOND ROW
 ========================================================== */
 
 .marquee-track-right {
   animation:
     marquee-right
-    50s
+    56s
     linear
     infinite;
 }
 
 /* ==========================================================
-   PAUSE
+   DESKTOP HOVER PAUSE
 ========================================================== */
 
-.marquee-wrapper:hover .marquee-track {
-  animation-play-state: running;
+@media (hover: hover) and (pointer: fine) {
+  .marquee-wrapper:hover
+  .marquee-track {
+    animation-play-state: running;
+  }
 }
 
 /* ==========================================================
@@ -119,70 +142,122 @@
 
 @keyframes marquee-left {
   from {
-    transform: translate3d(0, 0, 0);
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
 
   to {
-    transform: translate3d(-50%, 0, 0);
+    transform:
+      translate3d(
+        -50%,
+        0,
+        0
+      );
   }
 }
 
 @keyframes marquee-right {
   from {
-    transform: translate3d(-50%, 0, 0);
+    transform:
+      translate3d(
+        -50%,
+        0,
+        0
+      );
   }
 
   to {
-    transform: translate3d(0, 0, 0);
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
 }
 
 /* ==========================================================
-   PILL
+   TECHNOLOGY PILL
 ========================================================== */
 
 .marquee-pill {
-  flex: 0 0 auto;
+  flex:
+    0
+    0
+    auto;
 
   display: flex;
   align-items: center;
 
   gap: 11px;
 
-  padding: 13px 21px;
+  padding:
+    13px
+    21px;
 
-  border: 1px solid var(--border);
-  border-radius: 999px;
+  border:
+    1px solid
+    var(--border);
 
-  background: rgba(255, 255, 255, 0.78);
+  border-radius:
+    999px;
 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /*
+    IMPORTANT:
 
-  color: var(--foreground);
+    Removed backdrop-filter: blur(16px).
 
-  font-size: 15px;
-  font-weight: 600;
+    These elements are constantly moving,
+    so backdrop blur can cause significant
+    compositing work while scrolling.
+  */
 
-  white-space: nowrap;
+  background:
+    rgba(255, 255, 255, 0.92);
 
-  user-select: none;
+  color:
+    var(--foreground);
+
+  font-size:
+    15px;
+
+  font-weight:
+    600;
+
+  white-space:
+    nowrap;
+
+  user-select:
+    none;
 
   transition:
-    background-color 280ms ease,
-    border-color 280ms ease,
-    color 280ms ease;
+    background-color
+      220ms
+      ease,
+    border-color
+      220ms
+      ease,
+    color
+      220ms
+      ease;
 }
 
-/*
-  Don't move the whole pill vertically.
-  That makes a moving marquee feel jittery.
-*/
+/* ==========================================================
+   PILL HOVER
+========================================================== */
 
-.marquee-pill:hover {
-  border-color: rgba(255, 106, 0, 0.3);
+@media (hover: hover) and (pointer: fine) {
+  .marquee-pill:hover {
+    border-color:
+      rgba(255, 106, 0, 0.3);
 
-  background: rgba(255, 255, 255, 0.94);
+    background:
+      #ffffff;
+  }
 }
 
 /* ==========================================================
@@ -190,46 +265,72 @@
 ========================================================== */
 
 .marquee-icon {
-  width: 21px;
-  height: 21px;
+  width:
+    21px;
 
-  flex-shrink: 0;
+  height:
+    21px;
 
-  color: var(--primary);
+  flex-shrink:
+    0;
 
-  transform: translateZ(0);
+  color:
+    var(--primary);
 
   transition:
-    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
-    color 280ms ease;
+    transform
+      260ms
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
 }
 
-.marquee-pill:hover .marquee-icon {
-  transform:
-    translateZ(0)
-    scale(1.07);
+/* ==========================================================
+   ICON HOVER
+========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee-pill:hover
+  .marquee-icon {
+    transform:
+      scale(1.05);
+  }
 }
 
 /* ==========================================================
    DARK MODE
 ========================================================== */
 
-.dark .marquee-heading {
-  color: #a1a1aa;
+.dark
+.marquee-heading {
+  color:
+    #a1a1aa;
 }
 
-.dark .marquee-pill {
-  background: #1b1b20;
+.dark
+.marquee-pill {
+  background:
+    #1b1b20;
 
-  border-color: #2d2d33;
+  border-color:
+    #2d2d33;
 
-  color: #f4f4f5;
+  color:
+    #f4f4f5;
 }
 
-.dark .marquee-pill:hover {
-  background: #222227;
+@media (hover: hover) and (pointer: fine) {
+  .dark
+  .marquee-pill:hover {
+    background:
+      #222227;
 
-  border-color: rgba(255, 106, 0, 0.35);
+    border-color:
+      rgba(255, 106, 0, 0.35);
+  }
 }
 
 /* ==========================================================
@@ -237,13 +338,17 @@
 ========================================================== */
 
 @media (max-width: 1024px) {
+
   .marquee-track-left {
-    animation-duration: 40s;
+    animation-duration:
+      48s;
   }
 
   .marquee-track-right {
-    animation-duration: 44s;
+    animation-duration:
+      52s;
   }
+
 }
 
 /* ==========================================================
@@ -251,45 +356,146 @@
 ========================================================== */
 
 @media (max-width: 640px) {
+
   .marquee-section {
-    gap: 14px;
+    gap:
+      13px;
+
+    padding-top:
+      40px;
   }
 
   .marquee-track {
-    gap: 12px;
+    gap:
+      12px;
   }
 
+  /*
+    Don't make mobile animation faster.
+
+    Your old version reduced the duration
+    to 32–35 seconds, making more pixels
+    move per frame.
+
+    Keep it slower.
+  */
+
   .marquee-track-left {
-    animation-duration: 32s;
+    animation-duration:
+      46s;
   }
 
   .marquee-track-right {
-    animation-duration: 35s;
+    animation-duration:
+      50s;
   }
 
   .marquee-pill {
-    padding: 11px 17px;
+    padding:
+      11px
+      17px;
 
-    font-size: 14px;
+    font-size:
+      14px;
+
+    /*
+      Fully solid mobile background keeps
+      compositing inexpensive.
+    */
+
+    background:
+      var(--card);
+  }
+
+  .dark
+  .marquee-pill {
+    background:
+      #1b1b20;
   }
 
   .marquee-icon {
-    width: 18px;
-    height: 18px;
+    width:
+      18px;
+
+    height:
+      18px;
   }
+
+  /*
+    Make the edge mask slightly smaller
+    on phones.
+  */
+
+  .marquee-wrapper {
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        black 4%,
+        black 96%,
+        transparent 100%
+      );
+
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        black 4%,
+        black 96%,
+        transparent 100%
+      );
+  }
+
+}
+
+/* ==========================================================
+   VERY SMALL PHONES
+========================================================== */
+
+@media (max-width: 480px) {
+
+  .marquee-track-left {
+    animation-duration:
+      48s;
+  }
+
+  .marquee-track-right {
+    animation-duration:
+      52s;
+  }
+
+  .marquee-pill {
+    padding:
+      10px
+      15px;
+  }
+
 }
 
 /* ==========================================================
    REDUCED MOTION
 ========================================================== */
 
-@media (prefers-reduced-motion: reduce) {
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
   .marquee-track {
-    animation: none !important;
+    animation:
+      none !important;
+
+    transform:
+      none !important;
+
+    will-change:
+      auto;
   }
 
   .marquee-pill,
   .marquee-icon {
-    transition: none !important;
+    transition:
+      none !important;
   }
+
 }

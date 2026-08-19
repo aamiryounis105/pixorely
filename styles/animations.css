@@ -7,53 +7,35 @@
 ========================================================== */
 
 /*
-  Apply theme transitions only to page surfaces.
-  Navbar transitions are controlled inside Navbar.tsx.
+  Only transition theme-related properties.
+  Avoid global transform / shadow transitions because
+  Framer Motion and component-specific CSS handle those.
 */
 
 body,
 main,
-footer,
-section,
-article,
-aside {
+footer {
   transition:
-    background-color 300ms ease,
-    border-color 300ms ease,
+    background-color 250ms ease,
     color 180ms ease;
 }
 
-/* Interactive elements */
+/*
+  Sections/cards should not all receive global transitions.
+  Add transitions directly to components that need them.
+*/
 
-button,
-a,
+/* ==========================================================
+   FORM ELEMENTS
+========================================================== */
+
 input,
 textarea,
 select {
   transition:
-    background-color 300ms ease,
-    border-color 300ms ease,
-    box-shadow 300ms ease,
-    transform 300ms ease,
-    color 100ms ease;
-}
-
-/* Icons */
-
-svg {
-  transition:
-    color 100ms ease,
-    fill 100ms ease,
-    stroke 100ms ease,
-    transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Images */
-
-img {
-  transition:
-    opacity 300ms ease,
-    transform 300ms ease;
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 180ms ease;
 }
 
 /* ==========================================================
@@ -62,25 +44,25 @@ img {
 
 .animate-lift {
   transition:
-    transform 300ms ease,
-    box-shadow 300ms ease;
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .animate-lift:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
 }
 
 .animate-scale {
-  transition: transform 300ms ease;
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .animate-scale:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .animate-opacity {
-  transition: opacity 300ms ease;
+  transition:
+    opacity 250ms ease;
 }
 
 .animate-opacity:hover {
@@ -92,23 +74,43 @@ img {
 ========================================================== */
 
 .fade-in {
-  animation: fadeIn 600ms ease both;
+  animation:
+    fadeIn
+    550ms
+    ease
+    both;
 }
 
 .fade-up {
-  animation: fadeUp 600ms ease both;
+  animation:
+    fadeUp
+    550ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 }
 
 .fade-down {
-  animation: fadeDown 600ms ease both;
+  animation:
+    fadeDown
+    550ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 }
 
 .fade-left {
-  animation: fadeLeft 600ms ease both;
+  animation:
+    fadeLeft
+    550ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 }
 
 .fade-right {
-  animation: fadeRight 600ms ease both;
+  animation:
+    fadeRight
+    550ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 }
 
 /* ==========================================================
@@ -128,48 +130,96 @@ img {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+
+    transform:
+      translate3d(
+        0,
+        18px,
+        0
+      );
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
 }
 
 @keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(-24px);
+
+    transform:
+      translate3d(
+        0,
+        -18px,
+        0
+      );
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
 }
 
 @keyframes fadeLeft {
   from {
     opacity: 0;
-    transform: translateX(-24px);
+
+    transform:
+      translate3d(
+        -18px,
+        0,
+        0
+      );
   }
 
   to {
     opacity: 1;
-    transform: translateX(0);
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
 }
 
 @keyframes fadeRight {
   from {
     opacity: 0;
-    transform: translateX(24px);
+
+    transform:
+      translate3d(
+        18px,
+        0,
+        0
+      );
   }
 
   to {
     opacity: 1;
-    transform: translateX(0);
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
   }
 }
 
@@ -181,16 +231,9 @@ img {
   body,
   main,
   footer,
-  section,
-  article,
-  aside,
-  button,
-  a,
   input,
   textarea,
-  select,
-  svg,
-  img {
+  select {
     transition: none !important;
   }
 
