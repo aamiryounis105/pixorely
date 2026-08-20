@@ -4,6 +4,8 @@ import {
   Space_Grotesk,
 } from "next/font/google";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import "./globals.css";
 
 import { createMetadata } from "@/lib/seo";
@@ -53,12 +55,17 @@ export default function RootLayout({
         `}
       >
         {/* Organization Schema */}
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: JSON.stringify(
+              organizationSchema,
+            ),
           }}
         />
+
+        {/* Theme */}
 
         <ThemeProvider
           attribute="class"
@@ -69,6 +76,10 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+
+        {/* Vercel Speed Insights */}
+
+        <SpeedInsights />
       </body>
     </html>
   );
