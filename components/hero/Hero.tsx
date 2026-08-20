@@ -1,5 +1,3 @@
-"use client";
-
 import HeroActions from "./HeroActions";
 import HeroBadge from "./HeroBadge";
 import HeroHeading from "./HeroHeading";
@@ -33,8 +31,6 @@ export default function Hero() {
           text-center
         "
       >
-        {/* Main hero content */}
-
         <div
           className="
             mx-auto

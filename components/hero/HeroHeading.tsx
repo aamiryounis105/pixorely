@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function HeroHeading() {
   return (
     <div
@@ -19,22 +15,7 @@ export default function HeroHeading() {
     >
       {/* Main heading */}
 
-      <motion.h1
-        initial={{
-          opacity: 0,
-          y: 28,
-          filter: "blur(10px)",
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-        }}
-        transition={{
-          duration: 0.85,
-          delay: 0.14,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+      <h1
         className="
           text-[clamp(3rem,7vw,6.8rem)]
           font-extrabold
@@ -51,26 +32,11 @@ export default function HeroHeading() {
             experiences that grow brands.
           </span>
         </span>
-      </motion.h1>
+      </h1>
 
       {/* Description */}
 
-      <motion.p
-        initial={{
-          opacity: 0,
-          y: 20,
-          filter: "blur(6px)",
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-        }}
-        transition={{
-          duration: 0.75,
-          delay: 0.28,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+      <p
         className="
           mt-8
           max-w-[950px]
@@ -84,9 +50,9 @@ export default function HeroHeading() {
       >
         Pixorely helps startups and growing businesses build a
         stronger digital presence through premium websites,
-        WordPress, Shopify, digital marketing, and
-        professional email solutions.
-      </motion.p>
+        WordPress, Shopify, digital marketing, and professional
+        email solutions.
+      </p>
     </div>
   );
 }
