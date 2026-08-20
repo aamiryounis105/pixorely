@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Star } from "lucide-react";
+import {
+  MessageSquareHeart,
+  Star,
+} from "lucide-react";
 
 import Counter from "@/components/why-us/CountUp";
 
@@ -10,179 +13,325 @@ export default function ReviewSummary() {
     <motion.div
       initial={{
         opacity: 0,
-        x: -40,
+        y: 24,
       }}
       whileInView={{
         opacity: 1,
-        x: 0,
+        y: 0,
       }}
       viewport={{
         once: true,
-        amount: 0.3,
+        amount: 0.25,
       }}
       transition={{
-        duration: 0.7,
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
       }}
       className="
         group
         relative
         overflow-hidden
 
-        rounded-3xl
+        rounded-[30px]
 
         border
         border-[var(--border)]
 
         bg-[var(--card)]
 
-        p-8
-
-        shadow-sm
+        p-7
+        sm:p-8
       "
     >
-      {/* Glow */}
+      {/* Subtle accent */}
 
       <div
+        aria-hidden="true"
         className="
+          pointer-events-none
           absolute
           -right-20
           -top-20
 
-          h-56
-          w-56
+          h-52
+          w-52
 
           rounded-full
 
           bg-[var(--primary)]
 
-          opacity-0
+          opacity-[0.05]
 
-          blur-3xl
-
-          transition-opacity
-          duration-500
-
-          group-hover:opacity-10
+          blur-[70px]
         "
       />
 
-      {/* Google */}
+      <div className="relative z-10">
 
-      <div className="relative z-10 flex items-center gap-4">
-        <img
-          src="/images/google-icon.svg"
-          alt="Google"
-          className="h-10 w-10"
-        />
+        {/* ================= HEADER ================= */}
 
-        <div>
-          <p className="text-lg font-semibold text-[var(--foreground)]">
-            Google Reviews
-          </p>
-
-          <p className="text-sm text-[var(--muted)]">
-            Trusted by clients worldwide
-          </p>
-        </div>
-      </div>
-
-      {/* Stars */}
-
-      <div className="relative z-10 mt-8 flex gap-1">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star
-            key={i}
-            size={22}
+        <div className="flex items-center gap-4">
+          <div
             className="
-              fill-[var(--primary)]
+              flex
+              h-11
+              w-11
+              shrink-0
+              items-center
+              justify-center
+
+              rounded-xl
+
+              border
+              border-[var(--border)]
+
+              bg-[var(--secondary)]
+
               text-[var(--primary)]
             "
-          />
-        ))}
-      </div>
+          >
+            <MessageSquareHeart size={20} />
+          </div>
 
-      {/* Rating */}
+          <div>
+            <p
+              className="
+                text-[15px]
+                font-semibold
 
-      <div className="relative z-10 mt-5">
-        <h2 className="text-5xl font-bold tracking-tight text-[var(--foreground)]">
-          <Counter
-            end={5}
-            decimals={1}
-          />
-        </h2>
+                text-[var(--foreground)]
+              "
+            >
+              Client Reviews
+            </p>
 
-        <p className="mt-2 text-[var(--muted)]">
-          Average Google Rating
-        </p>
-      </div>
-
-      {/* Stats */}
-
-      <div className="relative z-10 mt-10 grid grid-cols-2 gap-6">
-        <div>
-          <h3 className="text-3xl font-bold text-[var(--primary)]">
-            <Counter
-              end={300}
-              suffix="+"
-            />
-          </h3>
-
-          <p className="mt-1 text-sm text-[var(--muted)]">
-            Projects Delivered
-          </p>
+            <p
+              className="
+                mt-0.5
+                text-sm
+                text-[var(--muted)]
+              "
+            >
+              Trusted by clients worldwide
+            </p>
+          </div>
         </div>
 
-        <div>
-          <h3 className="text-3xl font-bold text-[var(--primary)]">
-            <Counter
-              end={99}
-              suffix="%"
-            />
-          </h3>
+        {/* ================= RATING ================= */}
 
-          <p className="mt-1 text-sm text-[var(--muted)]">
-            Client Satisfaction
+        <div className="mt-9">
+
+          {/* Stars */}
+
+          <div className="flex items-center gap-1.5">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <Star
+                key={index}
+                size={20}
+                strokeWidth={1.8}
+                className="
+                  fill-[var(--primary)]
+                  text-[var(--primary)]
+                "
+              />
+            ))}
+          </div>
+
+          {/* Score */}
+
+          <div className="mt-5">
+            <h2
+              className="
+                text-6xl
+                font-bold
+                leading-none
+                tracking-[-0.05em]
+
+                text-[var(--foreground)]
+              "
+            >
+              <Counter
+                end={4.9}
+                decimals={1}
+              />
+            </h2>
+
+            <p
+              className="
+                mt-3
+                text-sm
+                font-medium
+
+                text-[var(--muted)]
+              "
+            >
+              Average Client Rating
+            </p>
+          </div>
+        </div>
+
+        {/* ================= STATS ================= */}
+
+        <div
+          className="
+            mt-9
+
+            grid
+            grid-cols-2
+
+            overflow-hidden
+
+            rounded-2xl
+
+            border
+            border-[var(--border)]
+
+            bg-[var(--secondary)]
+          "
+        >
+          {/* Projects */}
+
+          <div
+            className="
+              px-5
+              py-5
+            "
+          >
+            <h3
+              className="
+                text-3xl
+                font-bold
+                tracking-tight
+
+                text-[var(--foreground)]
+              "
+            >
+              <Counter
+                end={300}
+                suffix="+"
+              />
+            </h3>
+
+            <p
+              className="
+                mt-2
+                text-sm
+                text-[var(--muted)]
+              "
+            >
+              Projects Delivered
+            </p>
+          </div>
+
+          {/* Satisfaction */}
+
+          <div
+            className="
+              border-l
+              border-[var(--border)]
+
+              px-5
+              py-5
+            "
+          >
+            <h3
+              className="
+                text-3xl
+                font-bold
+                tracking-tight
+
+                text-[var(--foreground)]
+              "
+            >
+              <Counter
+                end={99}
+                suffix="%"
+              />
+            </h3>
+
+            <p
+              className="
+                mt-2
+                text-sm
+                text-[var(--muted)]
+              "
+            >
+              Client Satisfaction
+            </p>
+          </div>
+        </div>
+
+        {/* ================= REVIEW SOURCES ================= */}
+
+        <div
+          className="
+            mt-8
+
+            border-t
+            border-[var(--border)]
+
+            pt-6
+          "
+        >
+          <p
+            className="
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[0.14em]
+
+              text-[var(--muted)]
+            "
+          >
+            Reviews across
           </p>
+
+          <div
+            className="
+              mt-3
+
+              flex
+              flex-wrap
+              items-center
+              gap-x-3
+              gap-y-2
+
+              text-sm
+              font-semibold
+
+              text-[var(--foreground)]
+            "
+          >
+            <span>Upwork</span>
+
+            <span
+              className="
+                h-1
+                w-1
+
+                rounded-full
+
+                bg-[var(--primary)]
+              "
+            />
+
+            <span>Facebook</span>
+
+            <span
+              className="
+                h-1
+                w-1
+
+                rounded-full
+
+                bg-[var(--primary)]
+              "
+            />
+
+            <span>Direct Clients</span>
+          </div>
         </div>
       </div>
-
-      {/* Button */}
-
-      <a
-        href="https://g.page/r/CTgfDpuVSXXBEBM/review"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="
-          relative
-          z-10
-
-          mt-10
-
-          inline-flex
-          items-center
-          gap-2
-
-          rounded-full
-
-          bg-[var(--primary)]
-
-          px-6
-          py-3
-
-          font-semibold
-
-          text-white
-
-          transition-all
-          duration-300
-
-          hover:gap-3
-        "
-      >
-        View Google Reviews
-
-        <ArrowUpRight size={18} />
-      </a>
     </motion.div>
   );
 }

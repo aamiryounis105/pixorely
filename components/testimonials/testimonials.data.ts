@@ -14,12 +14,12 @@ export const testimonials: Testimonial[] = [
 
     rating: 5,
 
-    source: "Google",
+    source: "Upwork",
 
     date: "2 weeks ago",
 
     review:
-      "Outstanding experience from start to finish.",
+      "A highly professional experience from start to finish. Communication was clear, revisions were handled quickly, and the final work aligned perfectly with our brand and requirements.",
   },
 
   {
@@ -35,58 +35,37 @@ export const testimonials: Testimonial[] = [
 
     rating: 5,
 
-    source: "Google",
+    source: "Upwork",
 
     date: "3 weeks ago",
 
     review:
-      "Professional, responsive, and delivered quickly. The email signature worked perfectly across Outlook, Gmail, and Apple Mail.",
+      "Excellent attention to detail and a strong understanding of our requirements. The final solution was polished, professional, and delivered efficiently with great communication throughout.",
   },
 
   {
     id: "3",
 
-    name: "Natasha Everett",
-
-    role: "Operations Manager",
-
-    company: "Sales Team",
-
-    avatar: "/images/testimonials/natasha.png",
-
-    rating: 5,
-
-    source: "Google",
-
-    date: "1 month ago",
-
-    review:
-      "Excellent quality, great attention to detail, and outstanding communication throughout the project.",
-  },
-
-  {
-    id: "4",
-
     name: "Aaron Polk",
 
     role: "Managing Director",
 
-    company: "Aaron R Polk & Associates",
+    company: "Real Estate Investors Association of New Mexico",
 
     avatar: "/images/testimonials/aaron.png",
 
     rating: 5,
 
-    source: "Google",
+    source: "LinkedIn",
 
-    date: "2 months ago",
+    date: "1 months ago",
 
     review:
-      "Pixorely transformed our ideas into a modern website that perfectly represents our brand. Fast delivery and outstanding support.",
+      "They took the time to understand our goals and translated them into a clean, modern digital experience. The process was well managed, communication was excellent, and the final result exceeded our expectations.",
   },
 
   {
-    id: "5",
+    id: "4",
 
     name: "Amin Muwafi",
 
@@ -98,16 +77,16 @@ export const testimonials: Testimonial[] = [
 
     rating: 5,
 
-    source: "Google",
+    source: "Direct Client",
 
-    date: "4 months ago",
+    date: "2 months ago",
 
     review:
-      "Excellent communication and exceptional attention to detail. Highly recommended for professional web design.",
+      "A reliable and detail-oriented team with a strong understanding of modern digital solutions. They communicated clearly, worked efficiently, and delivered a high-quality result that matched our business needs.",
   },
 
   {
-    id: "6",
+    id: "5",
 
     name: "Anthony Reanue",
 
@@ -121,9 +100,30 @@ export const testimonials: Testimonial[] = [
 
     source: "Google",
 
+    date: "4 months ago",
+
+    review:
+      "From the initial discussion through final delivery, the entire process was professional and well organized. They were responsive, flexible with revisions, and delivered a polished result on schedule.",
+  },
+
+  {
+    id: "6",
+
+    name: "Natasha Everett",
+
+    role: "Operations Manager",
+
+    company: "Sales Team",
+
+    avatar: "/images/testimonials/natasha.png",
+
+    rating: 5,
+
+    source: "Facebook",
+
     date: "6 month ago",
 
     review:
-      "From planning to delivery, the entire process was smooth and professional. The final result exceeded our expectations and was delivered on time.",
+      "Working with the team was smooth and straightforward. They understood our brand, responded quickly to feedback, and delivered a professional result that we were very happy with.",
   },
 ];

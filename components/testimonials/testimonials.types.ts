@@ -13,7 +13,12 @@ export interface Testimonial {
 
   avatar: string;
 
-  source: "Google";
+  source:
+    | "Upwork"
+    | "Facebook"
+    | "LinkedIn"
+    | "Direct Client"
+    | "Google";
 
   date: string;
 }

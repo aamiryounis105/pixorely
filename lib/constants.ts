@@ -26,7 +26,7 @@ export const SITE = {
 
   author: "Pixorely",
 
-  socialImage: "/hero-bg.jpg",
+  socialImage: "/og-image.jpg",
 
   email: "hello@pixorely.com",
 

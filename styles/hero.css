@@ -108,7 +108,7 @@
 .marquee-track-left {
   animation:
     marquee-left
-    52s
+    30s
     linear
     infinite;
 }
@@ -120,7 +120,7 @@
 .marquee-track-right {
   animation:
     marquee-right
-    56s
+    30s
     linear
     infinite;
 }

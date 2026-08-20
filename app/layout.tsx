@@ -7,6 +7,7 @@ import {
 import "./globals.css";
 
 import { createMetadata } from "@/lib/seo";
+import { organizationSchema } from "@/lib/organizationSchema";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const inter = Inter({
@@ -51,9 +52,17 @@ export default function RootLayout({
           antialiased
         `}
       >
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           enableColorScheme
           storageKey="pixorely-theme"

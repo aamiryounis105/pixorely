@@ -3,7 +3,9 @@
 import HeroActions from "./HeroActions";
 import HeroBadge from "./HeroBadge";
 import HeroHeading from "./HeroHeading";
+import HeroRating from "./HeroRating";
 import ServiceMarquee from "./ServiceMarquee";
+
 import Container from "@/components/ui/Container";
 
 export default function Hero() {
@@ -20,7 +22,6 @@ export default function Hero() {
         lg:py-10
       "
     >
-
       <Container
         className="
           relative
@@ -50,11 +51,11 @@ export default function Hero() {
 
           <HeroActions />
 
-          <ServiceMarquee />
+          <HeroRating />
 
+          <ServiceMarquee />
         </div>
       </Container>
-
     </section>
   );
 }
